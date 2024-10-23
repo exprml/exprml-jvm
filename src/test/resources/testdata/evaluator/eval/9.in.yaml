@@ -1,0 +1,5 @@
+eval: $a
+where:
+  - $a: { json: 1 }
+  - $a: { json: 2 }
+  - $a: { json: 3 }

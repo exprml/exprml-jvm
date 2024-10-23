@@ -1,0 +1,20 @@
+eval:
+  $fibonacci:
+    $n: 2
+where:
+  - $first: 0
+  - $second: 1
+  - $fibonacci($n):
+      cases:
+        - when:
+            eq: [$n, 0]
+          then: $first
+        - when:
+            eq: [$n, 1]
+          then: $second
+        - otherwise:
+            add:
+              - $fibonacci:
+                  $n: { sub: [$n, 1] }
+              - $fibonacci:
+                  $n: { sub: [$n, 2] }

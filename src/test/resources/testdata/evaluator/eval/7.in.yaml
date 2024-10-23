@@ -1,0 +1,8 @@
+eval: $f
+where:
+  - $a: { json: -123.5 }
+  - $b: { json: abc }
+  - $c: { json: true }
+  - $d: { json: false }
+  - $e: { json: {} }
+  - $f: { json: [] }

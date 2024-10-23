@@ -1,0 +1,3 @@
+for($k, $v): { json: abc }
+do: $k
+if: { json: a }

@@ -1,0 +1,5 @@
+cases:
+  - when:
+      json: false
+    then:
+      json: 1
