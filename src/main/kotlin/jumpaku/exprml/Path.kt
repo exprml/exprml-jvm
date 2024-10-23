@@ -17,7 +17,7 @@ fun Path.append(vararg ps: Any): Path = path {
 
 fun Path.format(): String = when {
     posList.isEmpty() -> "/"
-    else -> posList.joinToString { pos ->
+    else -> posList.joinToString("") { pos ->
         when {
             pos.key.isNotEmpty() -> "/${pos.key}"
             else -> "/${pos.index}"

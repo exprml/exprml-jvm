@@ -1,6 +1,7 @@
 package jumpaku.exprml
 
 import jumpaku.exprml.pb.exprml.v1.*
+import org.junit.jupiter.api.Test
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.Arguments
 import org.junit.jupiter.params.provider.MethodSource
@@ -29,7 +30,84 @@ class EvaluatorTest {
         }
     }
 
-    // Matcher for values of type protobuf Value
+    @ParameterizedTest
+    @MethodSource("provide_extension")
+    fun testEvaluateExpr_extension(name: String, inSource: String, wantValue: Value) {
+        val decodeResult = Decoder().decode(decodeInput { yaml = inSource })
+        if (decodeResult.isError) {
+            fail("decode error: ${decodeResult.errorMessage}")
+        }
+        val pareResult = Parser().parse(parseInput { value = decodeResult.value })
+        if (pareResult.isError) {
+            fail("parse error: ${pareResult.errorMessage}")
+        }
+
+        val sut = Evaluator(
+            config = Evaluator.Config(
+                extension = mapOf(
+                    "\$ext_func" to { _, args -> evaluateOutput { value = objValue(args) } }
+                )
+            )
+        )
+        val evaluateResult = sut.evaluateExpr(evaluateInput { expr = pareResult.expr })
+        assertEquals(EvaluateOutput.Status.OK, evaluateResult.status)
+        assertEqualsValue(emptyList(), wantValue, evaluateResult.value)
+    }
+
+    @Test
+    fun testEvaluateExpr_beforeEvaluate() {
+        val evalPaths = mutableListOf<String>()
+
+        val decodeResult = Decoder().decode(decodeInput {
+            yaml = "cat: ['`Hello`', '`, `', '`ExprML`', '`!`']"
+        })
+        if (decodeResult.isError) {
+            fail("decode error: ${decodeResult.errorMessage}")
+        }
+        val pareResult = Parser().parse(parseInput { value = decodeResult.value })
+        if (pareResult.isError) {
+            fail("parse error: ${pareResult.errorMessage}")
+        }
+
+        val sut = Evaluator(
+            config = Evaluator.Config(
+                beforeEvaluate = { input ->
+                    evalPaths.add(input.expr.path.format())
+                }
+            )
+        )
+        val evaluateResult = sut.evaluateExpr(evaluateInput { expr = pareResult.expr })
+        assertEquals(EvaluateOutput.Status.OK, evaluateResult.status)
+        assertEquals(listOf("/", "/cat/0", "/cat/1", "/cat/2", "/cat/3"), evalPaths)
+    }
+
+    @Test
+    fun testEvaluateExpr_afterEvaluate() {
+        val evalTypes = mutableListOf<Value.Type>()
+
+        val decodeResult = Decoder().decode(decodeInput {
+            yaml = "cat: ['`Hello`', '`, `', '`ExprML`', '`!`']"
+        })
+        if (decodeResult.isError) {
+            fail("decode error: ${decodeResult.errorMessage}")
+        }
+        val pareResult = Parser().parse(parseInput { value = decodeResult.value })
+        if (pareResult.isError) {
+            fail("parse error: ${pareResult.errorMessage}")
+        }
+
+        val sut = Evaluator(
+            config = Evaluator.Config(
+                afterEvaluate = { _, output ->
+                    evalTypes.add(output.value.type)
+                }
+            )
+        )
+        val evaluateResult = sut.evaluateExpr(evaluateInput { expr = pareResult.expr })
+        assertEquals(EvaluateOutput.Status.OK, evaluateResult.status)
+        assertEquals(listOf(Value.Type.STR, Value.Type.STR, Value.Type.STR, Value.Type.STR, Value.Type.STR), evalTypes)
+    }
+
     fun assertEqualsValue(path: List<String>, expect: Value, actual: Value) {
         assertEquals(expect.type, actual.type, "type mismatch at $path")
         when (expect.type) {
@@ -76,6 +154,20 @@ class EvaluatorTest {
                     else -> error("invalid want: $want")
                 }
             }
+
+        @JvmStatic
+        fun provide_extension(): List<Arguments> = listOf(
+            Arguments.arguments(
+                "Ref",
+                "\$ext_func",
+                objValue(mapOf())
+            ),
+            Arguments.arguments(
+                "Call",
+                "\$ext_func: { \$arg: '`arg`'}",
+                objValue(mapOf("\$arg" to strValue("arg")))
+            ),
+        )
     }
 }
 
