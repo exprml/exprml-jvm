@@ -6,7 +6,7 @@ managed:
     - file_option: java_multiple_files
       value: true
     - file_option: java_package
-      value: jumpaku.exprml.pb.exprml.v1
+      value: net.jumpaku.exprml.pb.exprml.v1
 plugins:
   - remote: buf.build/protocolbuffers/kotlin:v28.2
     out: ../src/main/kotlin
