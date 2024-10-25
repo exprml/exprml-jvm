@@ -5,7 +5,7 @@ plugins {
     //id('org.jreleaser').version('1.14.0')
 }
 
-group = "com.githu.exprml"
+group = "com.github.exprml"
 version = "0.0.2"
 
 repositories {
