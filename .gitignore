@@ -28,3 +28,4 @@ replay_pid*
 build/
 protobuf/
 .kotlin/
+!gradle/wrapper/gradle-wrapper.jar
