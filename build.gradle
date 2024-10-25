@@ -2,11 +2,10 @@ plugins {
     id("org.jetbrains.kotlin.jvm").version("2.0.20")
     id('org.jetbrains.dokka').version('1.9.20')
     id("maven-publish")
-    //id('org.jreleaser').version('1.14.0')
 }
 
 group = "com.github.exprml"
-version = "0.0.2"
+version = "0.0.1"
 
 repositories {
     mavenCentral()
@@ -50,6 +49,3 @@ publishing {
         }
     }
 }
-//tasks.named("publishToMavenLocal") {
-//    dependsOn("publish")
-//}

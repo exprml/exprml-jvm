@@ -20,3 +20,8 @@ testdata: ## make testdata BRANCH=main
 	rm -rf exprml-testsuite
 	cd src/test/resources && find testdata -type f > filelist.txt
 
+.PHONY: docs
+docs: ## make docs
+	rm -rf docs/* && mkdir -p docs
+	./gradlew dokkaJavadoc
+	cp -r build/dokka/javadoc/* docs/
