@@ -48,15 +48,15 @@ public final class EncoderProto {
       "prml/v1/value.proto\"\212\001\n\013EncodeInput\0225\n\006f" +
       "ormat\030\001 \001(\0162\035.exprml.v1.EncodeInput.Form" +
       "atR\006format\022&\n\005value\030\003 \001(\0132\020.exprml.v1.Va" +
-      "lueR\005value\"\034\n\006Format\022\010\n\004YAML\020\000\022\010\n\004JSON\020\001" +
-      "\"f\n\014EncodeOutput\022\031\n\010is_error\030\001 \001(\010R\007isEr" +
+      "lueR\005value\"\034\n\006Format\022\010\n\004JSON\020\000\022\010\n\004YAML\020\001" +
+      "\"b\n\014EncodeOutput\022\031\n\010is_error\030\001 \001(\010R\007isEr" +
       "ror\022#\n\rerror_message\030\002 \001(\tR\014errorMessage" +
-      "\022\026\n\006result\030\003 \001(\tR\006result2F\n\007Encoder\022;\n\006E" +
-      "ncode\022\026.exprml.v1.EncodeInput\032\027.exprml.v" +
-      "1.EncodeOutput\"\000Bt\n\037net.jumpaku.exprml.p" +
-      "b.exprml.v1B\014EncoderProtoP\001\242\002\003EXX\252\002\tExpr" +
-      "ml.V1\312\002\tExprml\\V1\342\002\025Exprml\\V1\\GPBMetadat" +
-      "a\352\002\nExprml::V1b\006proto3"
+      "\022\022\n\004text\030\003 \001(\tR\004text2F\n\007Encoder\022;\n\006Encod" +
+      "e\022\026.exprml.v1.EncodeInput\032\027.exprml.v1.En" +
+      "codeOutput\"\000Bt\n\037net.jumpaku.exprml.pb.ex" +
+      "prml.v1B\014EncoderProtoP\001\242\002\003EXX\252\002\tExprml.V" +
+      "1\312\002\tExprml\\V1\342\002\025Exprml\\V1\\GPBMetadata\352\002\n" +
+      "Exprml::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -74,7 +74,7 @@ public final class EncoderProto {
     internal_static_exprml_v1_EncodeOutput_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_exprml_v1_EncodeOutput_descriptor,
-        new java.lang.String[] { "IsError", "ErrorMessage", "Result", });
+        new java.lang.String[] { "IsError", "ErrorMessage", "Text", });
     descriptor.resolveAllFeaturesImmutable();
     net.jumpaku.exprml.pb.exprml.v1.ValueProto.getDescriptor();
   }

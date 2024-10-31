@@ -32,7 +32,7 @@ private static final long serialVersionUID = 0L;
   }
   private EncodeOutput() {
     errorMessage_ = "";
-    result_ = "";
+    text_ = "";
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
@@ -110,47 +110,47 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int RESULT_FIELD_NUMBER = 3;
+  public static final int TEXT_FIELD_NUMBER = 3;
   @SuppressWarnings("serial")
-  private volatile java.lang.Object result_ = "";
+  private volatile java.lang.Object text_ = "";
   /**
    * <pre>
-   * Encoded YAML or JSON string.
+   * Encoded string in JSON (or JSON-compatible YAML).
    * </pre>
    *
-   * <code>string result = 3 [json_name = "result"];</code>
-   * @return The result.
+   * <code>string text = 3 [json_name = "text"];</code>
+   * @return The text.
    */
   @java.lang.Override
-  public java.lang.String getResult() {
-    java.lang.Object ref = result_;
+  public java.lang.String getText() {
+    java.lang.Object ref = text_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      result_ = s;
+      text_ = s;
       return s;
     }
   }
   /**
    * <pre>
-   * Encoded YAML or JSON string.
+   * Encoded string in JSON (or JSON-compatible YAML).
    * </pre>
    *
-   * <code>string result = 3 [json_name = "result"];</code>
-   * @return The bytes for result.
+   * <code>string text = 3 [json_name = "text"];</code>
+   * @return The bytes for text.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getResultBytes() {
-    java.lang.Object ref = result_;
+      getTextBytes() {
+    java.lang.Object ref = text_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      result_ = b;
+      text_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -177,8 +177,8 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessage.isStringEmpty(errorMessage_)) {
       com.google.protobuf.GeneratedMessage.writeString(output, 2, errorMessage_);
     }
-    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(result_)) {
-      com.google.protobuf.GeneratedMessage.writeString(output, 3, result_);
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(text_)) {
+      com.google.protobuf.GeneratedMessage.writeString(output, 3, text_);
     }
     getUnknownFields().writeTo(output);
   }
@@ -196,8 +196,8 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessage.isStringEmpty(errorMessage_)) {
       size += com.google.protobuf.GeneratedMessage.computeStringSize(2, errorMessage_);
     }
-    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(result_)) {
-      size += com.google.protobuf.GeneratedMessage.computeStringSize(3, result_);
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(text_)) {
+      size += com.google.protobuf.GeneratedMessage.computeStringSize(3, text_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -218,8 +218,8 @@ private static final long serialVersionUID = 0L;
         != other.getIsError()) return false;
     if (!getErrorMessage()
         .equals(other.getErrorMessage())) return false;
-    if (!getResult()
-        .equals(other.getResult())) return false;
+    if (!getText()
+        .equals(other.getText())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -236,8 +236,8 @@ private static final long serialVersionUID = 0L;
         getIsError());
     hash = (37 * hash) + ERROR_MESSAGE_FIELD_NUMBER;
     hash = (53 * hash) + getErrorMessage().hashCode();
-    hash = (37 * hash) + RESULT_FIELD_NUMBER;
-    hash = (53 * hash) + getResult().hashCode();
+    hash = (37 * hash) + TEXT_FIELD_NUMBER;
+    hash = (53 * hash) + getText().hashCode();
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -375,7 +375,7 @@ private static final long serialVersionUID = 0L;
       bitField0_ = 0;
       isError_ = false;
       errorMessage_ = "";
-      result_ = "";
+      text_ = "";
       return this;
     }
 
@@ -416,7 +416,7 @@ private static final long serialVersionUID = 0L;
         result.errorMessage_ = errorMessage_;
       }
       if (((from_bitField0_ & 0x00000004) != 0)) {
-        result.result_ = result_;
+        result.text_ = text_;
       }
     }
 
@@ -440,8 +440,8 @@ private static final long serialVersionUID = 0L;
         bitField0_ |= 0x00000002;
         onChanged();
       }
-      if (!other.getResult().isEmpty()) {
-        result_ = other.result_;
+      if (!other.getText().isEmpty()) {
+        text_ = other.text_;
         bitField0_ |= 0x00000004;
         onChanged();
       }
@@ -482,7 +482,7 @@ private static final long serialVersionUID = 0L;
               break;
             } // case 18
             case 26: {
-              result_ = input.readStringRequireUtf8();
+              text_ = input.readStringRequireUtf8();
               bitField0_ |= 0x00000004;
               break;
             } // case 26
@@ -639,22 +639,22 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object result_ = "";
+    private java.lang.Object text_ = "";
     /**
      * <pre>
-     * Encoded YAML or JSON string.
+     * Encoded string in JSON (or JSON-compatible YAML).
      * </pre>
      *
-     * <code>string result = 3 [json_name = "result"];</code>
-     * @return The result.
+     * <code>string text = 3 [json_name = "text"];</code>
+     * @return The text.
      */
-    public java.lang.String getResult() {
-      java.lang.Object ref = result_;
+    public java.lang.String getText() {
+      java.lang.Object ref = text_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        result_ = s;
+        text_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
@@ -662,20 +662,20 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Encoded YAML or JSON string.
+     * Encoded string in JSON (or JSON-compatible YAML).
      * </pre>
      *
-     * <code>string result = 3 [json_name = "result"];</code>
-     * @return The bytes for result.
+     * <code>string text = 3 [json_name = "text"];</code>
+     * @return The bytes for text.
      */
     public com.google.protobuf.ByteString
-        getResultBytes() {
-      java.lang.Object ref = result_;
+        getTextBytes() {
+      java.lang.Object ref = text_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        result_ = b;
+        text_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -683,49 +683,49 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Encoded YAML or JSON string.
+     * Encoded string in JSON (or JSON-compatible YAML).
      * </pre>
      *
-     * <code>string result = 3 [json_name = "result"];</code>
-     * @param value The result to set.
+     * <code>string text = 3 [json_name = "text"];</code>
+     * @param value The text to set.
      * @return This builder for chaining.
      */
-    public Builder setResult(
+    public Builder setText(
         java.lang.String value) {
       if (value == null) { throw new NullPointerException(); }
-      result_ = value;
+      text_ = value;
       bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Encoded YAML or JSON string.
+     * Encoded string in JSON (or JSON-compatible YAML).
      * </pre>
      *
-     * <code>string result = 3 [json_name = "result"];</code>
+     * <code>string text = 3 [json_name = "text"];</code>
      * @return This builder for chaining.
      */
-    public Builder clearResult() {
-      result_ = getDefaultInstance().getResult();
+    public Builder clearText() {
+      text_ = getDefaultInstance().getText();
       bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Encoded YAML or JSON string.
+     * Encoded string in JSON (or JSON-compatible YAML).
      * </pre>
      *
-     * <code>string result = 3 [json_name = "result"];</code>
-     * @param value The bytes for result to set.
+     * <code>string text = 3 [json_name = "text"];</code>
+     * @param value The bytes for text to set.
      * @return This builder for chaining.
      */
-    public Builder setResultBytes(
+    public Builder setTextBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) { throw new NullPointerException(); }
       checkByteStringIsUtf8(value);
-      result_ = value;
+      text_ = value;
       bitField0_ |= 0x00000004;
       onChanged();
       return this;

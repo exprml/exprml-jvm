@@ -13,7 +13,7 @@ class EvaluatorTest {
     @ParameterizedTest
     @MethodSource("provide")
     fun testEvaluateExpr(name: String, inSource: String, wantError: Boolean, wantValue: Value?) {
-        val decodeResult = Decoder().decode(decodeInput { yaml = inSource })
+        val decodeResult = Decoder().decode(decodeInput { text = inSource })
         if (decodeResult.isError) {
             fail("decode error: ${decodeResult.errorMessage}")
         }
@@ -33,7 +33,7 @@ class EvaluatorTest {
     @ParameterizedTest
     @MethodSource("provide_extension")
     fun testEvaluateExpr_extension(name: String, inSource: String, wantValue: Value) {
-        val decodeResult = Decoder().decode(decodeInput { yaml = inSource })
+        val decodeResult = Decoder().decode(decodeInput { text = inSource })
         if (decodeResult.isError) {
             fail("decode error: ${decodeResult.errorMessage}")
         }
@@ -59,7 +59,7 @@ class EvaluatorTest {
         val evalPaths = mutableListOf<String>()
 
         val decodeResult = Decoder().decode(decodeInput {
-            yaml = "cat: ['`Hello`', '`, `', '`ExprML`', '`!`']"
+            text = "cat: ['`Hello`', '`, `', '`ExprML`', '`!`']"
         })
         if (decodeResult.isError) {
             fail("decode error: ${decodeResult.errorMessage}")
@@ -86,7 +86,7 @@ class EvaluatorTest {
         val evalTypes = mutableListOf<Value.Type>()
 
         val decodeResult = Decoder().decode(decodeInput {
-            yaml = "cat: ['`Hello`', '`, `', '`ExprML`', '`!`']"
+            text = "cat: ['`Hello`', '`, `', '`ExprML`', '`!`']"
         })
         if (decodeResult.isError) {
             fail("decode error: ${decodeResult.errorMessage}")
@@ -143,7 +143,7 @@ class EvaluatorTest {
             .distinct()
             .map { name ->
                 val inYaml = resourceContents["$name.in.yaml"]!!
-                val want = Decoder().decode(decodeInput { yaml = resourceContents["$name.want.yaml"]!! })
+                val want = Decoder().decode(decodeInput { text = resourceContents["$name.want.yaml"]!! })
                 when {
                     "want_value" in want.value.objMap ->
                         Arguments.arguments(name, inYaml, false, want.value.objMap["want_value"]!!)

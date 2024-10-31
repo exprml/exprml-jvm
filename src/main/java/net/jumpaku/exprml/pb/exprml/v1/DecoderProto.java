@@ -45,8 +45,8 @@ public final class DecoderProto {
   static {
     java.lang.String[] descriptorData = {
       "\n\027exprml/v1/decoder.proto\022\texprml.v1\032\025ex" +
-      "prml/v1/value.proto\"!\n\013DecodeInput\022\022\n\004ya" +
-      "ml\030\001 \001(\tR\004yaml\"v\n\014DecodeOutput\022\031\n\010is_err" +
+      "prml/v1/value.proto\"!\n\013DecodeInput\022\022\n\004te" +
+      "xt\030\001 \001(\tR\004text\"v\n\014DecodeOutput\022\031\n\010is_err" +
       "or\030\001 \001(\010R\007isError\022#\n\rerror_message\030\002 \001(\t" +
       "R\014errorMessage\022&\n\005value\030\003 \001(\0132\020.exprml.v" +
       "1.ValueR\005value2F\n\007Decoder\022;\n\006Decode\022\026.ex" +
@@ -66,7 +66,7 @@ public final class DecoderProto {
     internal_static_exprml_v1_DecodeInput_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_exprml_v1_DecodeInput_descriptor,
-        new java.lang.String[] { "Yaml", });
+        new java.lang.String[] { "Text", });
     internal_static_exprml_v1_DecodeOutput_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_exprml_v1_DecodeOutput_fieldAccessorTable = new

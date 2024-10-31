@@ -31,7 +31,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private DecodeInput() {
-    yaml_ = "";
+    text_ = "";
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
@@ -47,47 +47,47 @@ private static final long serialVersionUID = 0L;
             net.jumpaku.exprml.pb.exprml.v1.DecodeInput.class, net.jumpaku.exprml.pb.exprml.v1.DecodeInput.Builder.class);
   }
 
-  public static final int YAML_FIELD_NUMBER = 1;
+  public static final int TEXT_FIELD_NUMBER = 1;
   @SuppressWarnings("serial")
-  private volatile java.lang.Object yaml_ = "";
+  private volatile java.lang.Object text_ = "";
   /**
    * <pre>
-   * YAML string to decode.
+   * string in JSON (and JSON-compatible YAML).
    * </pre>
    *
-   * <code>string yaml = 1 [json_name = "yaml"];</code>
-   * @return The yaml.
+   * <code>string text = 1 [json_name = "text"];</code>
+   * @return The text.
    */
   @java.lang.Override
-  public java.lang.String getYaml() {
-    java.lang.Object ref = yaml_;
+  public java.lang.String getText() {
+    java.lang.Object ref = text_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      yaml_ = s;
+      text_ = s;
       return s;
     }
   }
   /**
    * <pre>
-   * YAML string to decode.
+   * string in JSON (and JSON-compatible YAML).
    * </pre>
    *
-   * <code>string yaml = 1 [json_name = "yaml"];</code>
-   * @return The bytes for yaml.
+   * <code>string text = 1 [json_name = "text"];</code>
+   * @return The bytes for text.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getYamlBytes() {
-    java.lang.Object ref = yaml_;
+      getTextBytes() {
+    java.lang.Object ref = text_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      yaml_ = b;
+      text_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -108,8 +108,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(yaml_)) {
-      com.google.protobuf.GeneratedMessage.writeString(output, 1, yaml_);
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(text_)) {
+      com.google.protobuf.GeneratedMessage.writeString(output, 1, text_);
     }
     getUnknownFields().writeTo(output);
   }
@@ -120,8 +120,8 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(yaml_)) {
-      size += com.google.protobuf.GeneratedMessage.computeStringSize(1, yaml_);
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(text_)) {
+      size += com.google.protobuf.GeneratedMessage.computeStringSize(1, text_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -138,8 +138,8 @@ private static final long serialVersionUID = 0L;
     }
     net.jumpaku.exprml.pb.exprml.v1.DecodeInput other = (net.jumpaku.exprml.pb.exprml.v1.DecodeInput) obj;
 
-    if (!getYaml()
-        .equals(other.getYaml())) return false;
+    if (!getText()
+        .equals(other.getText())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -151,8 +151,8 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + YAML_FIELD_NUMBER;
-    hash = (53 * hash) + getYaml().hashCode();
+    hash = (37 * hash) + TEXT_FIELD_NUMBER;
+    hash = (53 * hash) + getText().hashCode();
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -288,7 +288,7 @@ private static final long serialVersionUID = 0L;
     public Builder clear() {
       super.clear();
       bitField0_ = 0;
-      yaml_ = "";
+      text_ = "";
       return this;
     }
 
@@ -323,7 +323,7 @@ private static final long serialVersionUID = 0L;
     private void buildPartial0(net.jumpaku.exprml.pb.exprml.v1.DecodeInput result) {
       int from_bitField0_ = bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
-        result.yaml_ = yaml_;
+        result.text_ = text_;
       }
     }
 
@@ -339,8 +339,8 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(net.jumpaku.exprml.pb.exprml.v1.DecodeInput other) {
       if (other == net.jumpaku.exprml.pb.exprml.v1.DecodeInput.getDefaultInstance()) return this;
-      if (!other.getYaml().isEmpty()) {
-        yaml_ = other.yaml_;
+      if (!other.getText().isEmpty()) {
+        text_ = other.text_;
         bitField0_ |= 0x00000001;
         onChanged();
       }
@@ -371,7 +371,7 @@ private static final long serialVersionUID = 0L;
               done = true;
               break;
             case 10: {
-              yaml_ = input.readStringRequireUtf8();
+              text_ = input.readStringRequireUtf8();
               bitField0_ |= 0x00000001;
               break;
             } // case 10
@@ -392,22 +392,22 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private java.lang.Object yaml_ = "";
+    private java.lang.Object text_ = "";
     /**
      * <pre>
-     * YAML string to decode.
+     * string in JSON (and JSON-compatible YAML).
      * </pre>
      *
-     * <code>string yaml = 1 [json_name = "yaml"];</code>
-     * @return The yaml.
+     * <code>string text = 1 [json_name = "text"];</code>
+     * @return The text.
      */
-    public java.lang.String getYaml() {
-      java.lang.Object ref = yaml_;
+    public java.lang.String getText() {
+      java.lang.Object ref = text_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        yaml_ = s;
+        text_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
@@ -415,20 +415,20 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * YAML string to decode.
+     * string in JSON (and JSON-compatible YAML).
      * </pre>
      *
-     * <code>string yaml = 1 [json_name = "yaml"];</code>
-     * @return The bytes for yaml.
+     * <code>string text = 1 [json_name = "text"];</code>
+     * @return The bytes for text.
      */
     public com.google.protobuf.ByteString
-        getYamlBytes() {
-      java.lang.Object ref = yaml_;
+        getTextBytes() {
+      java.lang.Object ref = text_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        yaml_ = b;
+        text_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -436,49 +436,49 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * YAML string to decode.
+     * string in JSON (and JSON-compatible YAML).
      * </pre>
      *
-     * <code>string yaml = 1 [json_name = "yaml"];</code>
-     * @param value The yaml to set.
+     * <code>string text = 1 [json_name = "text"];</code>
+     * @param value The text to set.
      * @return This builder for chaining.
      */
-    public Builder setYaml(
+    public Builder setText(
         java.lang.String value) {
       if (value == null) { throw new NullPointerException(); }
-      yaml_ = value;
+      text_ = value;
       bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * YAML string to decode.
+     * string in JSON (and JSON-compatible YAML).
      * </pre>
      *
-     * <code>string yaml = 1 [json_name = "yaml"];</code>
+     * <code>string text = 1 [json_name = "text"];</code>
      * @return This builder for chaining.
      */
-    public Builder clearYaml() {
-      yaml_ = getDefaultInstance().getYaml();
+    public Builder clearText() {
+      text_ = getDefaultInstance().getText();
       bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * YAML string to decode.
+     * string in JSON (and JSON-compatible YAML).
      * </pre>
      *
-     * <code>string yaml = 1 [json_name = "yaml"];</code>
-     * @param value The bytes for yaml to set.
+     * <code>string text = 1 [json_name = "text"];</code>
+     * @param value The bytes for text to set.
      * @return This builder for chaining.
      */
-    public Builder setYamlBytes(
+    public Builder setTextBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) { throw new NullPointerException(); }
       checkByteStringIsUtf8(value);
-      yaml_ = value;
+      text_ = value;
       bitField0_ |= 0x00000001;
       onChanged();
       return this;

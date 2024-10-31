@@ -84,27 +84,27 @@ public object EncodeOutputKt {
 
     /**
      * ```
-     * Encoded YAML or JSON string.
+     * Encoded string in JSON (or JSON-compatible YAML).
      * ```
      *
-     * `string result = 3 [json_name = "result"];`
+     * `string text = 3 [json_name = "text"];`
      */
-    public var result: kotlin.String
-      @JvmName("getResult")
-      get() = _builder.result
-      @JvmName("setResult")
+    public var text: kotlin.String
+      @JvmName("getText")
+      get() = _builder.text
+      @JvmName("setText")
       set(value) {
-        _builder.result = value
+        _builder.text = value
       }
     /**
      * ```
-     * Encoded YAML or JSON string.
+     * Encoded string in JSON (or JSON-compatible YAML).
      * ```
      *
-     * `string result = 3 [json_name = "result"];`
+     * `string text = 3 [json_name = "text"];`
      */
-    public fun clearResult() {
-      _builder.clearResult()
+    public fun clearText() {
+      _builder.clearText()
     }
   }
 }

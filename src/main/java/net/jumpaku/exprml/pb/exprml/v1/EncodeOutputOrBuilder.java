@@ -41,21 +41,21 @@ public interface EncodeOutputOrBuilder extends
 
   /**
    * <pre>
-   * Encoded YAML or JSON string.
+   * Encoded string in JSON (or JSON-compatible YAML).
    * </pre>
    *
-   * <code>string result = 3 [json_name = "result"];</code>
-   * @return The result.
+   * <code>string text = 3 [json_name = "text"];</code>
+   * @return The text.
    */
-  java.lang.String getResult();
+  java.lang.String getText();
   /**
    * <pre>
-   * Encoded YAML or JSON string.
+   * Encoded string in JSON (or JSON-compatible YAML).
    * </pre>
    *
-   * <code>string result = 3 [json_name = "result"];</code>
-   * @return The bytes for result.
+   * <code>string text = 3 [json_name = "text"];</code>
+   * @return The bytes for text.
    */
   com.google.protobuf.ByteString
-      getResultBytes();
+      getTextBytes();
 }

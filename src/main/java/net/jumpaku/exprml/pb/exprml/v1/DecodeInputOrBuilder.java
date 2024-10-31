@@ -11,21 +11,21 @@ public interface DecodeInputOrBuilder extends
 
   /**
    * <pre>
-   * YAML string to decode.
+   * string in JSON (and JSON-compatible YAML).
    * </pre>
    *
-   * <code>string yaml = 1 [json_name = "yaml"];</code>
-   * @return The yaml.
+   * <code>string text = 1 [json_name = "text"];</code>
+   * @return The text.
    */
-  java.lang.String getYaml();
+  java.lang.String getText();
   /**
    * <pre>
-   * YAML string to decode.
+   * string in JSON (and JSON-compatible YAML).
    * </pre>
    *
-   * <code>string yaml = 1 [json_name = "yaml"];</code>
-   * @return The bytes for yaml.
+   * <code>string text = 1 [json_name = "text"];</code>
+   * @return The bytes for text.
    */
   com.google.protobuf.ByteString
-      getYamlBytes();
+      getTextBytes();
 }

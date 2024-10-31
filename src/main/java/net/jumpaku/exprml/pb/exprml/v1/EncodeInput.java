@@ -58,20 +58,20 @@ private static final long serialVersionUID = 0L;
       implements com.google.protobuf.ProtocolMessageEnum {
     /**
      * <pre>
-     * YAML format.
-     * </pre>
-     *
-     * <code>YAML = 0;</code>
-     */
-    YAML(0),
-    /**
-     * <pre>
      * JSON format.
      * </pre>
      *
-     * <code>JSON = 1;</code>
+     * <code>JSON = 0;</code>
      */
-    JSON(1),
+    JSON(0),
+    /**
+     * <pre>
+     * JSON-compatible YAML format.
+     * </pre>
+     *
+     * <code>YAML = 1;</code>
+     */
+    YAML(1),
     UNRECOGNIZED(-1),
     ;
 
@@ -86,20 +86,20 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * YAML format.
-     * </pre>
-     *
-     * <code>YAML = 0;</code>
-     */
-    public static final int YAML_VALUE = 0;
-    /**
-     * <pre>
      * JSON format.
      * </pre>
      *
-     * <code>JSON = 1;</code>
+     * <code>JSON = 0;</code>
      */
-    public static final int JSON_VALUE = 1;
+    public static final int JSON_VALUE = 0;
+    /**
+     * <pre>
+     * JSON-compatible YAML format.
+     * </pre>
+     *
+     * <code>YAML = 1;</code>
+     */
+    public static final int YAML_VALUE = 1;
 
 
     public final int getNumber() {
@@ -126,8 +126,8 @@ private static final long serialVersionUID = 0L;
      */
     public static Format forNumber(int value) {
       switch (value) {
-        case 0: return YAML;
-        case 1: return JSON;
+        case 0: return JSON;
+        case 1: return YAML;
         default: return null;
       }
     }
@@ -263,7 +263,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (format_ != net.jumpaku.exprml.pb.exprml.v1.EncodeInput.Format.YAML.getNumber()) {
+    if (format_ != net.jumpaku.exprml.pb.exprml.v1.EncodeInput.Format.JSON.getNumber()) {
       output.writeEnum(1, format_);
     }
     if (((bitField0_ & 0x00000001) != 0)) {
@@ -278,7 +278,7 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (format_ != net.jumpaku.exprml.pb.exprml.v1.EncodeInput.Format.YAML.getNumber()) {
+    if (format_ != net.jumpaku.exprml.pb.exprml.v1.EncodeInput.Format.JSON.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(1, format_);
     }

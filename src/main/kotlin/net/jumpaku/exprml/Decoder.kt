@@ -10,7 +10,7 @@ import net.jumpaku.exprml.pb.exprml.v1.*
 class Decoder {
     fun decode(input: DecodeInput): DecodeOutput = try {
         val factory = YAMLFactory()
-        val node = ObjectMapper(factory).readTree(input.yaml)
+        val node = ObjectMapper(factory).readTree(input.text)
         decodeOutput { value = convertFromJackson(node) }
     } catch (e: Exception) {
         decodeOutput { isError = true;errorMessage = e.toString() }

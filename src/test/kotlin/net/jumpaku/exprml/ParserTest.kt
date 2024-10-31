@@ -12,7 +12,7 @@ class ParserTest {
     @ParameterizedTest
     @MethodSource("provide")
     fun testParse_false(name: String, inSource: String) {
-        val decodeResult = Decoder().decode(decodeInput { yaml = inSource })
+        val decodeResult = Decoder().decode(decodeInput { text = inSource })
         if (decodeResult.isError) {
             kotlin.test.fail("decode error: ${decodeResult.errorMessage}")
         }

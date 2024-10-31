@@ -67,35 +67,12 @@ public final class EvaluatorProto {
       "CASES_NOT_EXHAUSTIVE\020h\022\027\n\023REFERENCE_NOT_" +
       "FOUND\020i\022\022\n\016NOT_COMPARABLE\020j\022\025\n\021NOT_FINIT" +
       "E_NUMBER\020k\022\013\n\007ABORTED\020l\022\021\n\rUNKNOWN_ERROR" +
-      "\020m2\372\007\n\tEvaluator\022E\n\014EvaluateExpr\022\030.exprm" +
-      "l.v1.EvaluateInput\032\031.exprml.v1.EvaluateO" +
-      "utput\"\000\022E\n\014EvaluateEval\022\030.exprml.v1.Eval" +
-      "uateInput\032\031.exprml.v1.EvaluateOutput\"\000\022G" +
-      "\n\016EvaluateScalar\022\030.exprml.v1.EvaluateInp" +
-      "ut\032\031.exprml.v1.EvaluateOutput\"\000\022D\n\013Evalu" +
-      "ateRef\022\030.exprml.v1.EvaluateInput\032\031.exprm" +
-      "l.v1.EvaluateOutput\"\000\022D\n\013EvaluateObj\022\030.e" +
-      "xprml.v1.EvaluateInput\032\031.exprml.v1.Evalu" +
-      "ateOutput\"\000\022D\n\013EvaluateArr\022\030.exprml.v1.E" +
-      "valuateInput\032\031.exprml.v1.EvaluateOutput\"" +
-      "\000\022E\n\014EvaluateJson\022\030.exprml.v1.EvaluateIn" +
-      "put\032\031.exprml.v1.EvaluateOutput\"\000\022E\n\014Eval" +
-      "uateIter\022\030.exprml.v1.EvaluateInput\032\031.exp" +
-      "rml.v1.EvaluateOutput\"\000\022E\n\014EvaluateElem\022" +
-      "\030.exprml.v1.EvaluateInput\032\031.exprml.v1.Ev" +
-      "aluateOutput\"\000\022E\n\014EvaluateCall\022\030.exprml." +
-      "v1.EvaluateInput\032\031.exprml.v1.EvaluateOut" +
-      "put\"\000\022F\n\rEvaluateCases\022\030.exprml.v1.Evalu" +
-      "ateInput\032\031.exprml.v1.EvaluateOutput\"\000\022H\n" +
-      "\017EvaluateOpUnary\022\030.exprml.v1.EvaluateInp" +
-      "ut\032\031.exprml.v1.EvaluateOutput\"\000\022I\n\020Evalu" +
-      "ateOpBinary\022\030.exprml.v1.EvaluateInput\032\031." +
-      "exprml.v1.EvaluateOutput\"\000\022K\n\022EvaluateOp" +
-      "Variadic\022\030.exprml.v1.EvaluateInput\032\031.exp" +
-      "rml.v1.EvaluateOutput\"\000Bv\n\037net.jumpaku.e" +
-      "xprml.pb.exprml.v1B\016EvaluatorProtoP\001\242\002\003E" +
-      "XX\252\002\tExprml.V1\312\002\tExprml\\V1\342\002\025Exprml\\V1\\G" +
-      "PBMetadata\352\002\nExprml::V1b\006proto3"
+      "\020m2N\n\tEvaluator\022A\n\010Evaluate\022\030.exprml.v1." +
+      "EvaluateInput\032\031.exprml.v1.EvaluateOutput" +
+      "\"\000Bv\n\037net.jumpaku.exprml.pb.exprml.v1B\016E" +
+      "valuatorProtoP\001\242\002\003EXX\252\002\tExprml.V1\312\002\tExpr" +
+      "ml\\V1\342\002\025Exprml\\V1\\GPBMetadata\352\002\nExprml::" +
+      "V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

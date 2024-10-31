@@ -12,11 +12,11 @@ class Encoder {
     fun encode(input: EncodeInput): EncodeOutput = try {
         when (input.format) {
             EncodeInput.Format.YAML -> encodeOutput {
-                result = ObjectMapper(YAMLFactory()).writeValueAsString(convertToJackson(input.value))
+                text = ObjectMapper(YAMLFactory()).writeValueAsString(convertToJackson(input.value))
             }
 
             EncodeInput.Format.JSON -> encodeOutput {
-                result = ObjectMapper().writeValueAsString(convertToJackson(input.value))
+                text = ObjectMapper().writeValueAsString(convertToJackson(input.value))
             }
 
             else -> encodeOutput { isError = true; errorMessage = "Unsupported format: ${input.format}" }

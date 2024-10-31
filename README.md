@@ -1,10 +1,9 @@
 # exprml-jvm
 
-
 `exprml-jvm` is a JVM library implementing an ExprML interpreter, which is available in JVM languages such as Kotlin or Java.
-The ExprML is a programming language that can evaluate expressions represented in the YAML format.
+The ExprML is a programming language that can evaluate expressions represented in JSON (and JSON-compatible YAML).
 
-The language specification is available at https://github.com/exprml/exprml-language .
+The ExprML language specification is available at https://github.com/exprml/exprml-language .
 
 
 ## Installation
@@ -24,7 +23,7 @@ Add the following element in the tags `<repositories>` and `</repositories>` of 
 
 #### Gradle
 
-Add the following element in the `repositories {` `}` block of your `build.gradle` file:
+Add the following statement in the `repositories {` `}` block of your `build.gradle` file:
 
 ```groovy
     maven { url = URI("https://jitpack.io") }
@@ -40,7 +39,7 @@ Add the following element in the tags `<dependencies>` and `</dependencies>` of 
     <dependency>
         <groupId>io.github.exprml</groupId>
         <artifactId>exprml-jvm</artifactId>
-        <version>0.1.0</version>
+        <version>0.0.2</version>
     </dependency>
 ```
 
@@ -49,7 +48,7 @@ Add the following element in the tags `<dependencies>` and `</dependencies>` of 
 Add the following element in the `dependencies {` `}` block of your `build.gradle` file:
 
 ```groovy
-    implementation('io.github.exprml:exprml-jvm:0.1.0')
+    implementation('io.github.exprml:exprml-jvm:0.0.2')
 ```
 
 ### JitPack
@@ -69,7 +68,7 @@ import net.jumpaku.exprml.pb.exprml.v1.*;
 public class Main {
     public static void main(String[] args) {
         // Decode the input source code.
-        var decodeInput = DecodeInput.newBuilder().setYaml("cat: ['`Hello`', '`, `', '`ExprML`', '`!`']").build();
+        var decodeInput = DecodeInput.newBuilder().setText("cat: ['`Hello`', '`, `', '`ExprML`', '`!`']").build();
         var decodeResult = new Decoder().decode(decodeInput);
 
         // Parse AST from the decoded value.
@@ -84,8 +83,8 @@ public class Main {
         var encodeInput = EncodeInput.newBuilder().setValue(evaluateResult.getValue()).build();
         var encodeResult = new Encoder().encode(encodeInput);
 
-        System.out.println(encodeResult.getResult());
-        // => --- "Hello, ExprML!"
+        System.out.println(encodeResult.getText());
+        // => "Hello, ExprML!"
     }
 }
 ```
@@ -98,7 +97,7 @@ import net.jumpaku.exprml.pb.exprml.v1.*
 fun main() {
     // Decode the input source code.
     val decodeResult = Decoder()
-        .decode(decodeInput { yaml = "cat: ['`Hello`', '`, `', '`ExprML`', '`!`']" })
+        .decode(decodeInput { text = "cat: ['`Hello`', '`, `', '`ExprML`', '`!`']" })
     // Parse AST from the decoded value.
     val parseResult = Parser()
         .parse(parseInput { value = decodeResult.value })
@@ -108,8 +107,8 @@ fun main() {
     // Encode the evaluated result to get the final output.
     val encodeResult = Encoder()
         .encode(encodeInput { value = evaluateResult.value })
-    println(encodeResult.result)
-    // => --- "Hello, ExprML!"
+    println(encodeResult.text)
+    // => "Hello, ExprML!"
 }
 ```
 
@@ -126,7 +125,7 @@ import java.util.Map;
 public class Main {
 
     public static void main(String[] args) {
-        var decodeInput = DecodeInput.newBuilder().setYaml("$hello: { $name: '`Extension`' }").build();
+        var decodeInput = DecodeInput.newBuilder().setText("$hello: { $name: '`Extension`' }").build();
         var decodeResult = new Decoder().decode(decodeInput);
 
         var parseInput = ParseInput.newBuilder().setValue(decodeResult.getValue()).build();
@@ -145,8 +144,8 @@ public class Main {
         var encodeInput = EncodeInput.newBuilder().setValue(evaluateResult.getValue()).build();
         var encodeResult = new Encoder().encode(encodeInput);
 
-        System.out.println(encodeResult.getResult());
-        // --- "Hello, Extension!"
+        System.out.println(encodeResult.getText());
+        // "Hello, Extension!"
     }
 
     static EvaluateOutput helloFunc(Expr.Path path, Map<String, Value> arguments) {
@@ -163,7 +162,7 @@ import net.jumpaku.exprml.pb.exprml.v1.*
 
 fun main() {
     val decodeResult = Decoder()
-        .decode(decodeInput { yaml = "\$hello: { \$name: '`Extension`' }" })
+        .decode(decodeInput { text = "\$hello: { \$name: '`Extension`' }" })
     val parseResult = Parser()
         .parse(parseInput { value = decodeResult.value })
 
@@ -181,8 +180,8 @@ fun main() {
     val encodeResult = Encoder()
         .encode(encodeInput { value = evaluateResult.value })
 
-    println(encodeResult.result)
-    // --- "Hello, Extension!"
+    println(encodeResult.text)
+    // "Hello, Extension!"
 }
 ```
 
@@ -198,7 +197,7 @@ import java.util.Map;
 public class Main {
 
     public static void main(String[] args) {
-        var decodeInput = DecodeInput.newBuilder().setYaml("cat: ['`Hello`', '`, `', '`ExprML`', '`!`']").build();
+        var decodeInput = DecodeInput.newBuilder().setText("cat: ['`Hello`', '`, `', '`ExprML`', '`!`']").build();
         var decodeResult = new Decoder().decode(decodeInput);
 
         var parseInput = ParseInput.newBuilder().setValue(decodeResult.getValue()).build();
@@ -240,7 +239,7 @@ import net.jumpaku.exprml.pb.exprml.v1.*
 
 fun main() {
     val decodeResult = Decoder()
-        .decode(decodeInput { yaml = "cat: ['`Hello`', '`, `', '`ExprML`', '`!`']" })
+        .decode(decodeInput { text = "cat: ['`Hello`', '`, `', '`ExprML`', '`!`']" })
     val parseResult = Parser()
         .parse(parseInput { value = decodeResult.value })
 

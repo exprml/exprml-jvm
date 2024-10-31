@@ -34,27 +34,27 @@ public object DecodeInputKt {
 
     /**
      * ```
-     * YAML string to decode.
+     * string in JSON (and JSON-compatible YAML).
      * ```
      *
-     * `string yaml = 1 [json_name = "yaml"];`
+     * `string text = 1 [json_name = "text"];`
      */
-    public var yaml: kotlin.String
-      @JvmName("getYaml")
-      get() = _builder.yaml
-      @JvmName("setYaml")
+    public var text: kotlin.String
+      @JvmName("getText")
+      get() = _builder.text
+      @JvmName("setText")
       set(value) {
-        _builder.yaml = value
+        _builder.text = value
       }
     /**
      * ```
-     * YAML string to decode.
+     * string in JSON (and JSON-compatible YAML).
      * ```
      *
-     * `string yaml = 1 [json_name = "yaml"];`
+     * `string text = 1 [json_name = "text"];`
      */
-    public fun clearYaml() {
-      _builder.clearYaml()
+    public fun clearText() {
+      _builder.clearText()
     }
   }
 }
