@@ -26,7 +26,7 @@ Add the following element in the tags `<repositories>` and `</repositories>` of 
 Add the following statement in the `repositories {` `}` block of your `build.gradle` file:
 
 ```groovy
-    maven { url = URI("https://jitpack.io") }
+    maven { url = "https://jitpack.io" }
 ```
 
 ### Include the dependency
