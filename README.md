@@ -185,7 +185,7 @@ fun main() {
 }
 ```
 
-### Hook PHP functions before and after each evaluation of nested expressions
+### Hook functions before and after each evaluation of nested expressions
 
 ```java
 // Java
