@@ -112,7 +112,7 @@ fun main() {
 }
 ```
 
-### Call PHP functions from ExprML
+### Call functions from ExprML
 
 ```java
 // Java
